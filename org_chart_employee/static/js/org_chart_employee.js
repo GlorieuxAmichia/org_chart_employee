@@ -1,6 +1,14 @@
-var department_data = [];
+var employee_data = [];
 
-odoo.define("org_chart_organization.org_chart", function (require) {
+var nodeTemplate = function(data) {
+      return `
+        <span class="office">${data.office}</span>
+        <div class="title">${data.name}</div>
+        <div class="content">${data.title}</div>
+      `;
+    };
+
+odoo.define("org_chart_employee.org_chart", function (require) {
   "use strict";
 
   var core = require('web.core');
@@ -16,12 +24,12 @@ odoo.define("org_chart_organization.org_chart", function (require) {
     init: function(parent, context) {
       this._super(parent, context);
         var self = this;
-        if (context.tag == 'org_chart_organization.org_chart_department') {
+        if (context.tag == 'org_chart_employee.org_chart_department') {
             self._rpc({
-                model: 'org.chart.department',
-                method: 'get_department_data',
+                model: 'org.chart.employee',
+                method: 'get_employee_data',
             }, []).then(function(result){
-                department_data = result;
+                employee_data = result;
             }).done(function(){
                 self.render();
                 self.href = window.location.href;
@@ -38,7 +46,7 @@ odoo.define("org_chart_organization.org_chart", function (require) {
     render: function() {
         var super_render = this._super;
         var self = this;
-        var org_chart = QWeb.render('org_chart_organization.org_chart_template', {
+        var org_chart = QWeb.render('org_chart_employee.org_chart_template', {
             widget: self,
         });
         $( ".o_control_panel" ).addClass( "o_hidden" );
@@ -50,7 +58,7 @@ odoo.define("org_chart_organization.org_chart", function (require) {
     },
   });
 
-  core.action_registry.add('org_chart_organization.org_chart_department', OrgChartDepartment);
+  core.action_registry.add('org_chart_employee.org_chart_department', OrgChartDepartment);
 
   return OrgChartDepartment;
 

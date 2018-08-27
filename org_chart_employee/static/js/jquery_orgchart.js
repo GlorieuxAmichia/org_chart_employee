@@ -1046,7 +1046,7 @@
       this.touchMoved = true;
       var $touching = $(document.elementFromPoint(event.touches[0].clientX, event.touches[0].clientY));
       var $touchingNode = $touching.closest('div.node');
- 
+
       if ($touchingNode.length > 0) {
         var touchingNodeElement = $touchingNode[0];
         // TODO: simulate the dragover visualisation
@@ -1097,20 +1097,20 @@
       var simulatedEvent = document.createEvent('MouseEvents');
       simulatedEvent.initMouseEvent(
         simulatedType,    // type
-        true,             // bubbles                    
-        true,             // cancelable                 
-        window,           // view                       
-        1,                // detail                     
-        touch.screenX,    // screenX                    
-        touch.screenY,    // screenY                    
-        touch.clientX,    // clientX                    
-        touch.clientY,    // clientY                    
-        false,            // ctrlKey                    
-        false,            // altKey                     
-        false,            // shiftKey                   
-        false,            // metaKey                    
-        0,                // button                     
-        null              // relatedTarget              
+        true,             // bubbles
+        true,             // cancelable
+        window,           // view
+        1,                // detail
+        touch.screenX,    // screenX
+        touch.screenY,    // screenY
+        touch.clientX,    // clientX
+        touch.clientY,    // clientY
+        false,            // ctrlKey
+        false,            // altKey
+        false,            // shiftKey
+        false,            // metaKey
+        0,                // button
+        null              // relatedTarget
       );
       // Dispatch the simulated event to the target element
       event.target.dispatchEvent(simulatedEvent);

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <templates xml:space="preserve">
-  <t t-name="org_chart_organization.org_chart_template">
+  <t t-name="org_chart_employee.org_chart_template">
     <div id="chart-container" style="overflow-x:scroll ; overflow-y: scroll;"></div>
     <script type="text/javascript">
       $(function() {
-        <!-- Get Department Data -->
-        var datascource = department_data.values;
+        <!-- Get Employee Data -->
+        var datascource = employee_data.values;
 
-        $('#chart-container').orgchart({
+        var oc = $('#chart-container').orgchart({
           'data' : datascource,
-          'nodeContent': 'title'
+          'nodeTemplate': nodeTemplate
         });
 
       });

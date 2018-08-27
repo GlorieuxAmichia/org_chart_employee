@@ -17,6 +17,12 @@ body {
   text-align: center;
 }
 
+.office > img {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+}
+
 .orgchart td.left, .orgchart td.right, .orgchart td.top { border-color: #aaa; }
 .orgchart td>.down { background-color: #aaa; }
 .orgchart .middle-level .title { background-color: #006699; }
