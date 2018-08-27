@@ -27,13 +27,13 @@ class OrgChartEmployee(models.Model):
 	@api.model
 	def get_children(self, emp, style=False):
 		data = []
-		emp_data = {'name': emp.name, 'title': self._get_position(emp), 'office': self._get_image(emp)}
+		emp_data = {'name': emp.name, 'title': self.sudo()._get_position(emp), 'office': self._get_image(emp)}
 		childrens = self.env['hr.employee'].search([('parent_id','=',emp.id)])
 		for child in childrens:
 			sub_child = self.env['hr.employee'].search([('parent_id','=',child.id)])
 			next_style= self._get_style(style)
 			if not sub_child:
-				data.append({'name': child.name, 'title': self._get_position(child), 'className': next_style, 'office': self._get_image(child)})
+				data.append({'name': child.name, 'title': self.sudo()._get_position(child), 'className': next_style, 'office': self._get_image(child)})
 			else:
 				data.append(self.get_children(child, next_style))
 
