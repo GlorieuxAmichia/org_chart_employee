@@ -9,7 +9,8 @@
 
         var oc = $('#chart-container').orgchart({
           'data' : datascource,
-          'nodeTemplate': nodeTemplate
+          'nodeTemplate': nodeTemplate,
+          'toggleSiblingsResp': true
         });
 
       });
