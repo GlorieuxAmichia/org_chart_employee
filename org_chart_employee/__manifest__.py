@@ -3,7 +3,7 @@
 	'name': "Organization Chart Employee",
 	'summary': """Dynamic display of your Employee Hierarchy""",
 	'description': """Dynamic display of your Employee Hierarchy""",
-	'author': "SLife Organization, Odoo Community Association (OCA)",
+	'author': "SLife Organization",
 	'category': 'Human Resources',
 	'version': '1.0',
 	'license': 'AGPL-3',
