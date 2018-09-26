@@ -24,6 +24,8 @@ odoo.define("org_chart_employee.org_chart", function (require) {
     init: function(parent, context) {
       this._super(parent, context);
         var self = this;
+        console.log("self");
+        console.log(self);
         if (context.tag == 'org_chart_employee.org_chart_department') {
             self._rpc({
                 model: 'org.chart.employee',
