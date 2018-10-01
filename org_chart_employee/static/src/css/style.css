@@ -13,8 +13,9 @@ body {
 #chart-container {
   position: absolute;
   display: inline-block;
-  overflow: auto;
   text-align: center;
+  height: 100%;
+
 }
 
 .office > img {
